@@ -22,6 +22,8 @@ jobs:
           jq --version
           docker --version
           node --version
+          echo "npm version:"
+          npm --version
           java -version
           cat /etc/os-release
           sudo apt-get update
