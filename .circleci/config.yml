@@ -15,3 +15,4 @@ jobs:
           python --version
           pyenv --version
           pyenv install -v 3.7.2
+          python --version
