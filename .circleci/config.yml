@@ -8,22 +8,9 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202107-01
-      #image: ubuntu-1604:202104-01
+      image: ubuntu-2004:202104-01
     steps:
       - checkout
       - run: |
-          echo $JAVA_HOME
-          which javac
-          which java
-          aws --version
-          yq --version
-          go version
-          jq --version
-          docker --version
-          node --version
-          echo "npm version:"
-          npm --version
-          java -version
-          cat /etc/os-release
-          sudo apt-get update
+          python --version
+          pyenv --version
