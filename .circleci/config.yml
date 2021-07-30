@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run: |
           python --version
+          eval "$(pyenv init -)"
           pyenv --version
           pyenv install -v 3.7.2
           pyenv global 3.7.2
