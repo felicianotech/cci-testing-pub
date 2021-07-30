@@ -17,3 +17,4 @@ jobs:
           pyenv install -v 3.7.2
           pyenv global 3.7.2
           python --version
+          python3 --version
