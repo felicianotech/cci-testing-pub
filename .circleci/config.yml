@@ -8,14 +8,14 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202104-01
+      image: ubuntu-2004:202107-02
     steps:
       - checkout
       - run: |
           python --version
-          eval "$(pyenv init -)"
+          python3 --version
           pyenv --version
-          pyenv install -v 3.7.2
-          pyenv global 3.7.2
+          pyenv install -v 3.8.5
+          pyenv global 3.8.5
           python --version
           python3 --version
