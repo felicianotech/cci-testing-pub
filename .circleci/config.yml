@@ -15,7 +15,7 @@ jobs:
           python --version
           python3 --version
           pyenv --version
-          pyenv install -v 3.8.5
+          pyenv install -s 3.8.5
           pyenv global 3.8.5
           python --version
           python3 --version
