@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/android:31
+      - image: circleci/android:api-30
     steps:
       - checkout
       - run: |
