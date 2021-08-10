@@ -7,10 +7,8 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: android:202102-01
-      #image: android:canary
-    #resource_class: arm.medium
+    docker:
+      - image: circleci/android:31
     steps:
       - checkout
       - run: |
@@ -22,3 +20,7 @@ jobs:
           node --version
           java -version
           gcloud --version
+
+          echo "======================================================="
+          echo "======================================================="
+          cat /opt/android/sdk/platform-tools/source.properties
