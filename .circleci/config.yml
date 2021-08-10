@@ -17,9 +17,7 @@ jobs:
           which java
           jq --version
           docker --version
-          node --version
           java -version
-          gcloud --version
 
           echo "======================================================="
           echo "======================================================="
