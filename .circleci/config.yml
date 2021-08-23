@@ -6,13 +6,13 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:16.0
+      - image: cimg/go:1.17
     steps:
       - checkout
       - run:
           name: "Do all the things!"
           command: |
+            ls -lah
+            echo "================================"
             echo $SHELL
             echo $BASH_ENV
-            yarn global add electron
-            electron --version
