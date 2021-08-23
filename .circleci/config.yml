@@ -13,6 +13,7 @@ jobs:
           name: "Do all the things!"
           command: |
             ls -lah
+            ls -lah /
             echo "================================"
             echo $SHELL
             echo $BASH_ENV
