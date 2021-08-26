@@ -8,13 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      resource_class: gpu.nvidia.small
-      image: ubuntu-1604-cuda-10.1:202103-12
+      image: windows-server-2019-vs2019:stable
     steps:
       - checkout
-      - run:
-          name: "Test is cuda is available.."
-          command: nvidia-smi
-      - run: docker version
-      - run: dpkg -l nvidia-container-toolkit
-      - run: nvcc --version
+      - run: uname -r
