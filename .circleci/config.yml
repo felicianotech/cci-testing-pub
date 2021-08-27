@@ -16,4 +16,5 @@ jobs:
             echo $SHELL
             echo $BASH_ENV
             echo "================================"
-            docker run -it cimg/base:stable ls -lah /var/lib/docker/
+            docker run -it cimg/base:stable echo "hi"
+            ls -lah /var/lib/docker/
