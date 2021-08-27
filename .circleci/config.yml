@@ -17,3 +17,4 @@ jobs:
             echo "================================"
             echo $SHELL
             echo $BASH_ENV
+            ls -lah /var/lib/docker/
