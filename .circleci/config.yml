@@ -13,9 +13,7 @@ jobs:
       - run:
           name: "Do all the things!"
           command: |
-            ls -lah
-            ls -lah /
-            echo "================================"
             echo $SHELL
             echo $BASH_ENV
-            ls -lah /var/lib/docker/
+            echo "================================"
+            docker run -it cimg/base ls -lah /var/lib/docker/
