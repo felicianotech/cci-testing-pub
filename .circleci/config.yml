@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  n: circleci/node@dev:d62e948
+  brow: circleci/browser-tools@1.2.1
 
 workflows:
   main:
@@ -10,10 +10,11 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: ubuntu-2004:202101-01
+    docker:
+      - image: cimg/openjdk:11.0-browsers
     steps:
-      - run: gcloud version
-      - run: node --version
-      - n/install
-      - run: node --version
+      - brow/install-chrome
+      - brow/install-chromedriver
+      - run: |
+          java --version
+          google-chrome --version
