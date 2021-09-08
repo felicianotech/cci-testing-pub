@@ -12,4 +12,4 @@ jobs:
       resource_class: windows.medium
     steps:
       - checkout
-      - run: uname -r
+      - run: node --version
