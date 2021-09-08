@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: curl -sSL "https://github.com/WebAssembly/binaryen/releases/download/version_101/binaryen-version_101-x86_64-linux.tar.gz" | tar -xz -C /tmp/
-      - run: echo 'export PATH=/tmp/binaryen-version_101/bin/wasm-opt:${PATH}' >> $BASH_ENV
+      - run: echo 'export PATH=/tmp/binaryen-version_101/bin/:${PATH}' >> $BASH_ENV
       - run: cat $BASH_ENV
       - run: echo "===================================="
       - run: echo "$PATH"
