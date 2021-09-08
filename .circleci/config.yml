@@ -6,14 +6,10 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/go:1.17
+      - image: cimg/base:stable
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: "Do all the things!"
-          command: |
-            echo $SHELL
-            echo $BASH_ENV
-            echo "================================"
-            docker info | grep -i driver
+      - run: wget -c https://github.com/WebAssembly/binaryen/releases/download/version_101/binaryen-version_101-x86_64-linux.tar.gz -O - | tar -xz -C /tmp/
+      - run: echo "export PATH=/tmp/binaryen-version_101/bin/wasm-opt:\${PATH}" >> $BASH_ENV
+      - run: wasm-opt
