@@ -15,4 +15,5 @@ jobs:
       - run: echo "===================================="
       - run: echo "$PATH"
       - run: echo "===================================="
+      - run: ls -lah /tmp
       - run: wasm-opt
