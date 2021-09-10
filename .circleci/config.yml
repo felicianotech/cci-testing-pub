@@ -4,9 +4,9 @@ orbs:
   node: circleci/node@4.7
 
 executors:
-  docker: # Docker using the Node.js Convenience Image
+  docker: # Docker using the Base Convenience Image
     docker:
-      - image: cimg/node
+      - image: cimg/base:stable
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
