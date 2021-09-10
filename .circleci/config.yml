@@ -1,14 +1,42 @@
 version: 2.1
-workflows:
-  main:
-    jobs:
-      - build
-jobs:
-  build:
+
+orbs:
+  node: circleci/node@4.7
+
+executors:
+  docker: # Docker using the Node.js Convenience Image
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+  linux: # a Linux VM running Ubuntu 20.04
+    machine:
+      image: ubuntu-2004:202107-02
+  macos: # macos executor running Xcode
+    macos:
+      xcode: 12.5
+
+jobs:
+  test:
+    parameters:
+      os:
+        type: executor
+      node-version:
+        type: string
+    executor: << parameters.os >>
     steps:
       - checkout
-      - run: curl -sSL "https://github.com/WebAssembly/binaryen/releases/download/version_101/binaryen-version_101-x86_64-linux.tar.gz" | tar -xz -C /tmp/
-      - run: echo 'export PATH=/tmp/binaryen-version_101/bin/:${PATH}' >> $BASH_ENV
-      - run: wasm-opt
+      - node/install:
+          node-version: << parameters.node-version >>
+          install-yarn: true
+      - run: yarn test
+
+workflows:
+  all-tests:
+    jobs:
+      - test:
+          matrix:
+            parameters:
+              os: [docker, linux, macos]
+              node-version: ["14.17.6", "16.9.0"]
