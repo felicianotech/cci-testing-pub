@@ -30,7 +30,6 @@ jobs:
       - node/install:
           node-version: << parameters.node-version >>
           install-yarn: true
-      - run: yarn test
 
 workflows:
   all-tests:
