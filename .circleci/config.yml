@@ -12,7 +12,7 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           TEST_DATABASE_URL: postgresql://circleci@localhost/circle_test
-      - image: circleci/postgres:10.17
+      - image: cimg/postgres:10.17
         environment:
           POSTGRES_USER: circleci
           POSTGRES_HOST_AUTH_METHOD: trust
