@@ -24,3 +24,4 @@ jobs:
           echo "=== 2 ====================="
           echo 'CREATE DATABASE testdb' | psql -d $TEST_DATABASE_URL
           echo "=== 3 ====================="
+          echo '\list' | psql -d $TEST_DATABASE_URL
