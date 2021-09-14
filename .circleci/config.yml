@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:2021.04
+      - image: cimg/base:2021.07`
       - image: circleci/postgres:12.6
         environment:
           POSTGRES_USER: postgres
