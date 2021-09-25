@@ -6,9 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/openjdk:13.0
     steps:
       - checkout
-      - run: curl -sSL "https://github.com/WebAssembly/binaryen/releases/download/version_101/binaryen-version_101-x86_64-linux.tar.gz" | tar -xz -C /tmp/
-      - run: echo 'export PATH=/tmp/binaryen-version_101/bin/:${PATH}' >> $BASH_ENV
-      - run: wasm-opt
+      - run: ls -lah
