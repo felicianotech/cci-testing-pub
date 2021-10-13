@@ -15,4 +15,5 @@ jobs:
       - run: |
           node --version
           go version
-          npx eslint -v
+          npm list
+          npx eslint --version
