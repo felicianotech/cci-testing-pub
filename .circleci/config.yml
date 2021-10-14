@@ -18,3 +18,4 @@ jobs:
           npm list
           npx eslint --version
           npm list
+          choco install visualstudio2019community -y --params="--allWorkloads --includeRecommended --no-update --includeOptional --passive --noUpdateInstaller --locale en-US" --version="16.3.6.0" --no-progress
