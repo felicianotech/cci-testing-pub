@@ -28,4 +28,3 @@ jobs:
           cat /etc/os-release
           sudo apt-get update
           systemctl --version
-          /sbin/init --version
