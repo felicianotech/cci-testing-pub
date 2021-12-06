@@ -6,7 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:edge
+      - image: cimg/base:stable
     steps:
       - checkout
       - setup_remote_docker:
@@ -14,4 +14,4 @@ jobs:
       - run: |
           echo "=========================="
           docker version
-          docker compose version
+          docker-compose version
