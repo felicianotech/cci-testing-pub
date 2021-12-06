@@ -13,6 +13,4 @@ jobs:
           version: 20.10.7
       - run: |
           echo "=========================="
-          docker version
-          docker plugin ls
           docker compose version
