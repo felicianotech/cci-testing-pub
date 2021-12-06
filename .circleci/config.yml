@@ -13,6 +13,5 @@ jobs:
           version: 20.10.7
       - run: |
           echo "=========================="
-          cat $BASH_ENV
           docker version
           docker compose version
