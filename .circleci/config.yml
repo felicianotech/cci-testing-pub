@@ -6,11 +6,13 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/elixir:1.11.4-node
+      - image: cimg/base:edge
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.7
       - run: |
-          which pyenv
-          which python
           echo "=========================="
           cat $BASH_ENV
+          docker version
+          docker compose version
