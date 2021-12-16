@@ -8,7 +8,8 @@ workflows:
 jobs:
   build:
     machine:
-      image: android:2021.10.1
+      #image: android:2021.10.1
+      image: android:canary
     #resource_class: arm.medium
     steps:
       - checkout
