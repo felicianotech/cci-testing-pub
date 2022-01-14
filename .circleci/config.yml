@@ -13,9 +13,6 @@ jobs:
           version: 20.10.11
       - run: |
           echo "=========================="
-          docker compose version
-          echo "=========================="
-          docker-compose --version
       - run:
           shell: /usr/local/bin/ruby
           command: puts "A string".inspect
