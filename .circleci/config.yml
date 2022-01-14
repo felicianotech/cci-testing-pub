@@ -15,4 +15,4 @@ jobs:
           echo "=========================="
       - run:
           shell: /usr/local/bin/ruby
-          command: puts "A string".inspect
+          command: "puts "A string".inspect"
