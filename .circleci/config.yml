@@ -6,7 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:edge
+      - image: cimg/ruby:3.0.0
     steps:
       - checkout
       - setup_remote_docker:
@@ -16,3 +16,6 @@ jobs:
           docker compose version
           echo "=========================="
           docker-compose --version
+      - run:
+          shell: /usr/local/bin/ruby
+          command: puts "A string".inspect
