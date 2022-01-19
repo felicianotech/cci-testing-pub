@@ -9,6 +9,10 @@ jobs:
   build:
     machine: true
     steps:
+      - run: |
+          ssh -v localhost
+          sudo apt-get update && sudo apt-get -y dist-upgrade
+          ssh -v localhost
       - run: python --version
       - run: python3 --version
       - run: which python
