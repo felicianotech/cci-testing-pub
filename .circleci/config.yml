@@ -15,6 +15,7 @@ jobs:
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y cowsay
       - run: |
+          ssh -v localhost
           echo $JAVA_HOME
           which javac
           which java
