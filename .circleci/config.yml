@@ -13,6 +13,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          ssh -V
+          putty --version
           node --version
           go version
           npm list
