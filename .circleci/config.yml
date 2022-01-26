@@ -12,3 +12,4 @@ jobs:
       image: circleci/classic:201808-01
     steps:
       - run: ssh -V
+      - run: uname -a
