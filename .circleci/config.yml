@@ -8,26 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202111-02
+      #image: ubuntu-2004:202111-02
+      image: circleci/classic:201808-01
     steps:
-      - run: python --version
-      - run: python3 --version
-      - run: which python
-      - checkout
-      - run: sudo apt-get update && sudo apt-get install -y cowsay
-      - run: |
-          echo $JAVA_HOME
-          which javac
-          which java
-          aws --version
-          yq --version
-          go version
-          jq --version
-          docker --version
-          node --version
-          echo "npm version:"
-          npm --version
-          java -version
-          cat /etc/os-release
-          sudo apt-get update
-          systemctl --version
+      - run: ssh -V
