@@ -8,8 +8,8 @@ workflows:
 jobs:
   build:
     machine:
-      #image: ubuntu-2004:202111-02
-      image: ubuntu-1604:202101-01
+      image: ubuntu-2004:202112-01
+      #image: ubuntu-1604:202101-01
       #image: circleci/classic:201808-01
     steps:
       - run: ssh -V
