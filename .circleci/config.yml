@@ -9,16 +9,14 @@ jobs:
   build:
     machine: true
     steps:
-      - run: |
-          sudo apt-get update && sudo apt-get install openssh-server openssh-client
-          ssh -v localhost
       - run: python --version
       - run: python3 --version
       - run: which python
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y cowsay
       - run: |
-          ssh -v localhost
+          uname -a
+          ssh -V
           echo $JAVA_HOME
           which javac
           which java
