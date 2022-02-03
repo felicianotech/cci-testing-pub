@@ -1,17 +1,82 @@
 version: 2.1
 
+executors:
+  ubuntu-2004-amd64:
+    machine:
+      image: ubuntu-2004:202201-01
+  ubuntu-2004-arm64:
+    machine:
+      image: ubuntu-2004:202201-01
+    resource_class: arm.medium
+
 workflows:
   main:
     jobs:
-      - build
+      - check-versions:
+          matrix:
+            parameters:
+              image:
+                - ubuntu-2004-amd64
+                - ubuntu-2004-arm64
 
 jobs:
-  build:
-    machine:
-      image: ubuntu-2004:202111-02
-      #image: ubuntu-1604:202101-01
-      #image: circleci/classic:201808-01
+  check-versions:
+    parameters:
+      image:
+        type: executor
+    executor: << parameters.image >>
     steps:
-      - run: ssh -V
-      - run: uname -a
-      - run: docker buildx
+      - run: |
+          aws --version &>> image-versions.txt
+      - run: |
+          echo "Google Chrome: $(google-chrome --version)\n" >> image-versions.txt
+      - run: |
+          echo "Docker: $(docker --version)\n" >> image-versions.txt
+          echo "Docker Compose: $(docker-compose --version)\n" >> image-versions.txt
+      - run: |
+          echo "Firefox: $(firefox --version)\n" >> image-versions.txt
+      - run: |
+          echo "Go: $(go version)\n" >> image-versions.txt
+      - run: |
+          echo "GCP CLI: $(gcloud --version)\n" >> image-versions.txt
+      - run: |
+          if lsb_release -r | grep "14.04";then
+            echo "Gradle: n/a\n" >> image-versions.txt
+          else
+            echo "Gradle: $(gradle --version)\n" >> image-versions.txt
+          fi
+      - run: |
+          echo "Heroku: $(heroku --version)\n" >> image-versions.txt
+      - run: |
+          echo "jq: $(jq --version)\n" >> image-versions.txt
+      - run: |
+          echo "Leiningen: $(lein --version)\n" >> image-versions.txt
+      - run: |
+          echo "Maven: $(mvn --version)\n" >> image-versions.txt
+      - run: |
+          if lsb_release -r | grep "14.04";then
+            echo "Node.js: n/a\n" >> image-versions.txt
+          else
+            echo "Node: $(node --version)\n" >> image-versions.txt
+            echo "npm: $(npm --version)\n" >> image-versions.txt
+          fi
+      - run: |
+          java -version &>> image-versions.txt
+      - run: |
+          echo "Python (default): $(python --version)\n" >> image-versions.txt
+          echo "Python 2: $(python2 --version)\n" >> image-versions.txt
+          echo "Python 3: $(python3 --version)\n" >> image-versions.txt
+      - run: |
+          echo "Ruby: $(ruby --version)\n" >> image-versions.txt
+      - run: |
+          echo "SBT: $(sbt --version)\n" >> image-versions.txt
+      - run: |
+          if lsb_release -r | grep "20.04";then
+            echo "yq: $(yq --version)\n" >> image-versions.txt
+          else
+            echo "yq: n/a\n" >> image-versions.txt
+          fi
+      - run: |
+          echo "Kernel: $(uname -a)\n" >> image-versions.txt
+      - store_artifacts:
+          path: ./image-versions.txt
