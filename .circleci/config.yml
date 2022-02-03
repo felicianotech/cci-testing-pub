@@ -14,3 +14,4 @@ jobs:
     steps:
       - run: ssh -V
       - run: uname -a
+      - run: docker buildx
