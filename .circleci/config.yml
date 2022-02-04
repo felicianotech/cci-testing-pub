@@ -12,6 +12,6 @@ jobs:
       #image: ubuntu-1604:202101-01
       #image: circleci/classic:201808-01
     steps:
-      - run: ssh -V
+      - run: echo $NVM_DIR
       - run: uname -a
       - run: docker buildx
