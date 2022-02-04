@@ -17,5 +17,6 @@ jobs:
     steps:
       - run: echo $NVM_DIR
       - run: echo $TESTOR
+      - run: cat ~/.bashrc
       - run: uname -a
       - run: docker buildx
