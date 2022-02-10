@@ -8,13 +8,14 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202111-02
+      image: ubuntu-2004:202201-01
       #image: ubuntu-1604:202101-01
       #image: circleci/classic:201808-01
     environment:
       NVM_DIR: "chicken"
       TESTOR: "turk"
     steps:
+      - run: snap list
       - run: echo $NVM_DIR
       - run: echo $TESTOR
       - run: cat ~/.bashrc
