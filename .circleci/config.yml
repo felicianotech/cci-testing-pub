@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
       - run: |
+          python --version
           ssh -V
           putty.exe --version
           node --version
