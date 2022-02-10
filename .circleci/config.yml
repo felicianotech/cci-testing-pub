@@ -14,7 +14,6 @@ jobs:
       - checkout
       - run: |
           python --version
-          python3 --version
           python3.9 --version
           pytho2n --version
           ssh -V
