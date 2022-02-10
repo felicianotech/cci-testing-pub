@@ -14,8 +14,10 @@ jobs:
       - checkout
       - run: |
           python --version
+          python3 --version
+          python3.9 --version
+          pytho2n --version
           ssh -V
-          putty.exe --version
           node --version
           go version
           npm list
