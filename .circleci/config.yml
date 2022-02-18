@@ -7,9 +7,9 @@ workflows:
 
 jobs:
   build:
-    machine: true
+    machine: #true
       #image: ubuntu-2004:202201-02
-      #image: ubuntu-1604:202101-01
+      image: ubuntu-1604:202101-01
       #image: circleci/classic:201808-01
     steps:
       - run: |
