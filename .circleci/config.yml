@@ -7,17 +7,14 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: ubuntu-2004:202201-02
+    machine: true
+      #image: ubuntu-2004:202201-02
       #image: ubuntu-1604:202101-01
       #image: circleci/classic:201808-01
-    environment:
-      NVM_DIR: "chicken"
-      TESTOR: "turk"
     steps:
-      - run: snap list
-      - run: echo $NVM_DIR
-      - run: echo $TESTOR
-      - run: cat ~/.bashrc
-      - run: uname -a
-      - run: docker buildx
+      - run: |
+          nvm install v14.0.1
+          nvm alias default v14.0.1
+          node --version
+      - run: |
+          node --version
