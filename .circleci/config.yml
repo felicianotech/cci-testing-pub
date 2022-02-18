@@ -13,6 +13,7 @@ jobs:
       #image: circleci/classic:201808-01
     steps:
       - run: |
+          set -e
           nvm install v14.0.1
           nvm alias default v14.0.1
           node --version
