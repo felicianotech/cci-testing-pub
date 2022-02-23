@@ -17,7 +17,7 @@ jobs:
       TESTOR: "turk"
     steps:
       - run: |
-          python --version
+          python3 --version
           pip install requests
       - run: snap list
       - run: echo $NVM_DIR
