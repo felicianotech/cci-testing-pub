@@ -16,6 +16,9 @@ jobs:
       NVM_DIR: "chicken"
       TESTOR: "turk"
     steps:
+      - run: |
+          python --version
+          pip install requests
       - run: snap list
       - run: echo $NVM_DIR
       - run: echo $TESTOR
