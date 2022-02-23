@@ -18,7 +18,7 @@ jobs:
     steps:
       - run: |
           python3 --version
-          pip install requests
+          pip3 install requests
       - run: snap list
       - run: echo $NVM_DIR
       - run: echo $TESTOR
