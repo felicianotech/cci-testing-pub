@@ -19,6 +19,7 @@ jobs:
       - run: |
           python3 --version
           pip3 install requests
+      - run: gcloud --version
       - run: snap list
       - run: echo $NVM_DIR
       - run: echo $TESTOR
