@@ -17,6 +17,7 @@ jobs:
       TESTOR: "turk"
     steps:
       - run: |
+          echo $SSH_CONFIG_DIR
           python3 --version
           pip3 install requests
       - run: gcloud --version
