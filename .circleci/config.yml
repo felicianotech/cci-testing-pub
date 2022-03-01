@@ -14,6 +14,3 @@ jobs:
       - run: echo $SSH_CONFIG_DIR
       - run: |
           echo "=========================="
-      - run:
-          shell: /usr/local/bin/ruby
-          command: "puts "A string".inspect"
