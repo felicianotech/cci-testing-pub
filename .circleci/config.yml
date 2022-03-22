@@ -16,6 +16,7 @@ jobs:
       NVM_DIR: "chicken"
       TESTOR: "turk"
     steps:
+      - run: cat /etc/apt/sources.list
       - run: |
           echo $SSH_CONFIG_DIR
           python3 --version
