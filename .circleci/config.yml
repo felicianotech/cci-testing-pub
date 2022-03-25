@@ -1,30 +1,25 @@
 version: 2.1
-
-workflows:
-  main:
-    jobs:
-      - build
-
 jobs:
   build:
-    machine:
-      image: ubuntu-2004:current
-      #image: ubuntu-2004:202201-02
-      #image: ubuntu-1604:202101-01
-      #image: circleci/classic:201808-01
-    environment:
-      NVM_DIR: "chicken"
-      TESTOR: "turk"
+    docker:
+      - image: circleci/openjdk:11
+        environment:
+          SPRING_DATASOURCE_USERNAME: springuser
+          REPO_NAME: danielahedges/circleci
+      - image: circleci/postgres:10.11-alpine-ram
+        environment:
+          POSTGRES_USER: postgresuser
+          POSTGRES_DB: db
     steps:
-      - run: cat /etc/apt/sources.list
-      - run: |
-          echo $SSH_CONFIG_DIR
-          python3 --version
-          pip3 install requests
-      - run: gcloud --version
-      - run: snap list
-      - run: echo $NVM_DIR
-      - run: echo $TESTOR
-      - run: cat ~/.bashrc
-      - run: uname -a
-      - run: docker buildx
+      - run:
+          name: Install psql
+          command: |
+            echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' | sudo tee --append /etc/apt/sources.list.d/pgdg.list
+            sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client-10
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Query DB
+          command: psql -d db -U postgresuser -h localhost -c "select count(1) from information_schema.schemata;"
