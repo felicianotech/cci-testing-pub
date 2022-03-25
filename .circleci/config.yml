@@ -6,6 +6,7 @@ jobs:
         environment:
           SPRING_DATASOURCE_USERNAME: springuser
           REPO_NAME: danielahedges/circleci
+          PAGER: cat
       - image: circleci/postgres:10.11-alpine-ram
         environment:
           POSTGRES_USER: postgresuser
