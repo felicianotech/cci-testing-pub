@@ -3,20 +3,22 @@ version: 2.1
 workflows:
   main:
     jobs:
-      - build
+      - ubuntu-default
+      - ubuntu-1404
+      - ubuntu-1604
 
 jobs:
-  build:
-    machine: #true
-      #image: ubuntu-2004:202201-02
-      image: ubuntu-1604:202004-01
-      #image: circleci/classic:201808-01
+  ubuntu-default:
+    machine: true
     steps:
-      - run: |
-          node --version
-          which nvm
-          nvm install v14.0.1
-          nvm alias default v14.0.1
-          node --version
-      - run: |
-          node --version
+      - run: echo "I ran successfully"
+  ubuntu-1404:
+    machine:
+      image: circleci/classic:201808-01
+    steps:
+      - run: echo "I ran successfully"
+  ubuntu-1604:
+    machine:
+      image: ubuntu-1604:202004-01
+    steps:
+      - run: echo "I ran successfully"
