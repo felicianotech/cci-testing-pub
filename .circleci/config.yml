@@ -30,6 +30,7 @@ jobs:
         type: executor
     executor: << parameters.image >>
     steps:
+      - run: cat /etc/os-release >> image-versions.txt
       - run: |
           aws --version &>> image-versions.txt
       - run: |
