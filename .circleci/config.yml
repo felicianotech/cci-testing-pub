@@ -12,6 +12,7 @@ jobs:
     machine: true
     steps:
       - run: echo "I ran successfully"
+      - run: cat /etc/os-release
   ubuntu-1404:
     machine:
       image: circleci/classic:201808-01
