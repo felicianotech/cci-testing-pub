@@ -26,5 +26,5 @@ jobs:
       - run: snap list
       - run: echo $NVM_DIR
       - run: cat ~/.bashrc
+      - run: cat $BASH_ENV
       - run: uname -a
-      - run: docker buildx
