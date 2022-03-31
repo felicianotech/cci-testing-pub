@@ -14,7 +14,7 @@ jobs:
       #image: circleci/classic:201808-01
     environment:
       NVM_DIR: "chicken"
-      TESTOR: "turk"
+      TESTOR: "rednytiger"
     steps:
       - run: cat /etc/apt/sources.list
       - run: |
