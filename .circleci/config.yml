@@ -6,7 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:current
+      - image: cimg/base:edge-22.04
     steps:
       - checkout
       - setup_remote_docker:
