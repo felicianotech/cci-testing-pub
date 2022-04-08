@@ -6,11 +6,12 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:2022.04
+      - image: cimg/base:current
     steps:
       - checkout
       - setup_remote_docker:
           version: 20.10.12
-      - run: docker version
+      - run: docker --version
+      - run: lsb_release -cs
       - run: |
           echo "=========================="
