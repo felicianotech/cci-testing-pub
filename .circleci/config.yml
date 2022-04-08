@@ -11,7 +11,7 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 20.10.12
-      - run: docker --version
+      - run: docker --version | cut -d' ' -f3 | cut -d',' -f1
       - run: lsb_release -cs
       - run: |
           echo "=========================="
