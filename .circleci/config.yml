@@ -12,6 +12,7 @@ jobs:
     #resource_class: arm.medium
     steps:
       - checkout
+      - run: yarn --version
       - run: |
           sdkmanager --list | grep ndk
           echo "========================================================="
