@@ -10,4 +10,4 @@ jobs:
     macos:
       xcode: "13.0.0"
     steps:
-      - run: echo $PATH
+      - run: cat google-chrome
