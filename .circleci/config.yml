@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  bt: circleci/browser-tools@1
+
 workflows:
   main:
     jobs:
@@ -10,4 +13,5 @@ jobs:
     macos:
       xcode: "13.0.0"
     steps:
+      - bt/install-chrome
       - run: cat google-chrome
