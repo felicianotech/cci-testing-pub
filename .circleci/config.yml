@@ -13,5 +13,6 @@ jobs:
     macos:
       xcode: "13.0.0"
     steps:
+      - run: ls -lah /usr/local/bin
       - bt/install-chrome
-      - run: cat google-chrome
+      - run: cat /usr/local/bin/google-chrome
