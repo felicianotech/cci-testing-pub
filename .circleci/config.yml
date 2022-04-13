@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  hugo: circleci/hugo@0.3.1
-
 workflows:
   main:
     jobs:
@@ -11,24 +8,6 @@ workflows:
 jobs:
   build:
     macos:
-      xcode: "9.4.1"
+      xcode: "13.0.0"
     steps:
-      - run:
-          command: echo "Hello World!!"
-      - hugo/install:
-          version: "0.55.6"
-      - run: hugo version
-      - run: |
-          if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
-            echo "Your path is correctly set"
-          else
-            echo "Your path is missing ~/bin, you might want to add it."
-          fi
-      - run: |
-          echo "export PATH=$HOME/bin:$PATH" >> $BASH_ENV
-      - run: |
-          if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
-            echo "Your path is correctly set"
-          else
-            echo "Your path is missing ~/bin, you might want to add it."
-          fi
+      - run: echo $PATH
