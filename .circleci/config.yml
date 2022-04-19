@@ -12,6 +12,7 @@ jobs:
     resource_class: arm.medium
     steps:
       - checkout
+      - run: dpkg --print-architecture
       - run: |
           echo $JAVA_HOME
           which javac
