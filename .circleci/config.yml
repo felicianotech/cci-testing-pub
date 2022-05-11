@@ -9,6 +9,9 @@ jobs:
       - image: felicianotech/test:dev-node
     steps:
       - checkout
+      - run: cat ~/.circlerc
+      - run: cat ~/.bashrc
+      - run: cat ~/.profile
       - run: node --version
       - run: echo $SHELL
       - run: echo $TESTOR
