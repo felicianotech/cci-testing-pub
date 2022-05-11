@@ -14,6 +14,7 @@ jobs:
       - run: |
           nvm install 16.0.0
           node --version
+          nvm alias default 16.0.0
       - run: node --version
       - run: |
           nvm use 16.0.0
