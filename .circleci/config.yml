@@ -6,9 +6,11 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:edge-22.04
+      - image: cimg/base:current
     steps:
       - checkout
+      - run: echo 'TESTOR=chicken' >> ~/.bashrc
+      - run: echo $TESTOR
       - setup_remote_docker:
           version: 20.10.14
       - run: docker --version | cut -d' ' -f3 | cut -d',' -f1
