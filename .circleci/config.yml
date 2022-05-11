@@ -9,11 +9,11 @@ jobs:
       - image: felicianotech/test:dev-node
     steps:
       - checkout
-      - run: cat ~/.circlerc
-      - run: cat ~/.bashrc
-      - run: cat ~/.profile
-      - run: echo $SHELL
       - run: echo $TESTOR
+      - run: node --version
+      - run: nvm install 16.0.0
+      - run: node --version
+      - run: nvm use 16.0.0
       - run: node --version
       - setup_remote_docker:
           version: 20.10.14
