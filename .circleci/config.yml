@@ -11,9 +11,13 @@ jobs:
       - checkout
       - run: echo $TESTOR
       - run: node --version
-      - run: nvm install 16.0.0
+      - run: |
+          nvm install 16.0.0
+          node --version
       - run: node --version
-      - run: nvm use 16.0.0
+      - run: |
+          nvm use 16.0.0
+          node --version
       - run: node --version
       - setup_remote_docker:
           version: 20.10.14
