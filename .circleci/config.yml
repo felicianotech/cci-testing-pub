@@ -6,15 +6,11 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:current
+      - image: felicianotech/test:dev-node
     steps:
       - checkout
+      - run: node --version
       - run: echo $SHELL
-      - run: echo 'TESTOR=chicken' >> ~/.bashrc
       - run: echo $TESTOR
       - setup_remote_docker:
           version: 20.10.14
-      - run: docker --version | cut -d' ' -f3 | cut -d',' -f1
-      - run: lsb_release -cs
-      - run: |
-          echo "=========================="
