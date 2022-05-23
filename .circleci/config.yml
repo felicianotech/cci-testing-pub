@@ -6,12 +6,13 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:current
+      #- image: cimg/base:current
+      - image: cimg/node:lts-browsers
     steps:
       - checkout
       - run: echo $SHELL
       - run: echo 'TESTOR=chicken' >> ~/.bashrc
-      - run: echo $TESTOR
+      - run: node --version
       - setup_remote_docker:
           version: 20.10.14
       - run: docker --version | cut -d' ' -f3 | cut -d',' -f1
