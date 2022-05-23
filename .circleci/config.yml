@@ -10,8 +10,8 @@ jobs:
       - image: felicianotech/test:git
     working_directory: /mnt/ramdisk
     steps:
+      - run: git config --get safe.directory
       - checkout
-      - run: echo $SHELL
       - run: echo 'TESTOR=chicken' >> ~/.bashrc
       - run: node --version
       - setup_remote_docker:
