@@ -8,6 +8,7 @@ jobs:
     docker:
       #- image: cimg/base:current
       - image: cimg/node:lts-browsers
+    working_directory: /mnt/ramdisk
     steps:
       - checkout
       - run: echo $SHELL
