@@ -11,7 +11,6 @@ jobs:
     working_directory: /mnt/ramdisk
     steps:
       - run: git --version
-      - run: git config --global --get safe.directory
       - checkout
       - run: echo 'TESTOR=chicken' >> ~/.bashrc
       - run: node --version
