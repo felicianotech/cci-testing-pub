@@ -10,7 +10,8 @@ jobs:
       - image: felicianotech/test:git
     working_directory: /mnt/ramdisk
     steps:
-      - run: git config --get safe.directory
+      - run: git --version
+      - run: git config --global --get safe.directory
       - checkout
       - run: echo 'TESTOR=chicken' >> ~/.bashrc
       - run: node --version
