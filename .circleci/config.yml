@@ -8,16 +8,16 @@ workflows:
 jobs:
   build:
     machine:
-      #image: ubuntu-2204:edge
+      image: ubuntu-2204:current
       #image: ubuntu-2004:current
-      image: ubuntu-2004:2022.04.1
+      #image: ubuntu-2004:2022.04.1
       #image: ubuntu-1604:202101-01
       #image: circleci/classic:201808-01
     environment:
       NVM_DIR: "chicken"
       TESTOR: "rednytiger"
     steps:
-      - run: curl https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+      #- run: curl https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
       - run: sudo apt-get update
       - run: echo $TESTOR
       - run: docker compose --version
