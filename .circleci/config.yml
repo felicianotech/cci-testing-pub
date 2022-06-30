@@ -6,38 +6,15 @@ workflows:
       - build
 
 jobs:
-  build:
+  build-april:
     machine:
       image: android:2022.04.1
     #resource_class: arm.medium
     steps:
-      - checkout
-      - run: yarn --version
-      - run: |
-          sdkmanager --list | grep ndk
-          echo "========================================================="
-          echo "========================================================="
-          echo "========================================================="
-          sdkmanager --install "ndk;21.3.6528147"
-          echo "========================================================="
-          echo "========================================================="
-          echo "========================================================="
-          sdkmanager --list | grep ndk
-          echo "========================================================="
-          echo "========================================================="
-          echo "========================================================="
-          sdkmanager --list_installed | grep "build-tools;30.0.2"
-          echo "========================================================="
-          echo "========================================================="
-          echo "========================================================="
-          echo $JAVA_HOME
-          which javac
-          which java
-          jq --version
-          docker --version
-          node --version
-          java -version
-          gcloud --version
-          echo "Hi"
-          npm -v
-          java -version
+      - run: echo "hi"
+  build-june:
+    machine:
+      image: android:2022.06.1
+    #resource_class: arm.medium
+    steps:
+      - run: echo "hi"
