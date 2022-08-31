@@ -12,7 +12,7 @@ jobs:
       image: ubuntu-2004-cuda-11.6:2022.09.1
     steps:
       - checkout
-      - run: lspci -k | grep -EA3 'VGA|3D|Display'
+      - run: lspci -k | grep -EA3 'VGA|3D|Display' | grep "NVIDIA Corporation"
       - run:
           name: "Test if cuda is available.."
           command: nvidia-smi
