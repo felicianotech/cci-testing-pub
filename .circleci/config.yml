@@ -12,9 +12,9 @@ jobs:
       image: ubuntu-2004-cuda-11.4:202110-01
     steps:
       - checkout
-      - run: lspci | grep VGA
+      - run: lspci -k | grep -EA3 'VGA|3D|Display'
       - run:
-          name: "Test is cuda is available.."
+          name: "Test if cuda is available.."
           command: nvidia-smi
       - run: docker version
       - run: dpkg -l nvidia-container-toolkit
