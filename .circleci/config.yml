@@ -18,6 +18,7 @@ jobs:
       NVM_DIR: "chicken"
       TESTOR: "rednytiger"
     steps:
+      - run: lspci -k | grep -EA3 'VGA|3D|Display'
       - run: curl https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
       - run: sudo apt-get update
       - run: echo $TESTOR
