@@ -12,6 +12,7 @@ jobs:
       image: ubuntu-2004-cuda-11.4:202110-01
     steps:
       - checkout
+      - run: lspci | grep VGA
       - run:
           name: "Test is cuda is available.."
           command: nvidia-smi
