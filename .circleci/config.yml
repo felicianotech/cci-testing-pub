@@ -6,16 +6,7 @@ workflows:
 jobs:
   build:
     docker:
-      #- image: cimg/base:current
-      - image: felicianotech/test:git3
-    working_directory: /mnt/ramdisk
+      - image: cimg/python:3.10
     steps:
-      - run: git --version
-      - checkout
-      - run: echo 'TESTOR=chicken' >> ~/.bashrc
-      - setup_remote_docker:
-          version: 20.10.14
-      - run: docker --version | cut -d' ' -f3 | cut -d',' -f1
-      - run: lsb_release -cs
-      - run: |
-          echo "=========================="
+      - run: sudo pip install awscli
+      - run: aws --version
