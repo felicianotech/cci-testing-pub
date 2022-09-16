@@ -8,5 +8,5 @@ jobs:
     docker:
       - image: cimg/python:3.10
     steps:
-      - run: sudo pip install awscli
+      - run: pip install awscli
       - run: aws --version
