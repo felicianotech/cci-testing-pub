@@ -12,7 +12,9 @@ jobs:
     steps:
       - checkout
       - run: dpkg --print-architecture
-      - run: cat /etc/passwd
+      - run: |
+          cat /etc/passwd
+          cat /etc/group
       - run:
           name: "OpenVPN systemd test"
           command: |
