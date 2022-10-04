@@ -6,7 +6,8 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/python:3.8-node
     steps:
+      - run: python --version
       - run: pip install awscli
       - run: aws --version
