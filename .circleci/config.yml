@@ -12,6 +12,11 @@ jobs:
     steps:
       - checkout
       - run: dpkg --print-architecture
+      - run:
+          name: "Check Envars"
+          command: |
+            echo $DEBIAN_FRONTEND
+            echo $JAVA_HOME
       - run: |
           cat /etc/passwd
           cat /etc/group
@@ -22,7 +27,6 @@ jobs:
             sudo apt-get install -y openvpn-systemd-resolved
       - run: |
           cat /etc/apt/sources.list
-          echo $JAVA_HOME
           which javac
           which java
           go version
