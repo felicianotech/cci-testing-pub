@@ -8,10 +8,11 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2204:2022.04.1
+      image: ubuntu-2204:2022.10.1
     steps:
       - checkout
       - run: dpkg --print-architecture
+      - run: sudo apt-get update && sudo apt-get install -y openvpn openvpn-systemd-resolved
       - run:
           name: "Check Envars"
           command: |
