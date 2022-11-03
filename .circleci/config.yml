@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2204:202201-01
+      image: ubuntu-2204:2022.10.2
     steps:
       - checkout
       - run: dpkg --print-architecture
@@ -18,6 +18,10 @@ jobs:
           command: |
             echo $DEBIAN_FRONTEND
             echo $JAVA_HOME
+      - run:
+          name: "Check Versions"
+          command: |
+            openssl --version
       - run: |
           cat /etc/passwd
           cat /etc/group
