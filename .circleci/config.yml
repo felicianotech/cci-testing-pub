@@ -21,7 +21,7 @@ jobs:
       - run:
           name: "Check Versions"
           command: |
-            openssl version
+            dpkg -l | grep " openssl "
       - run: |
           cat /etc/passwd
           cat /etc/group
