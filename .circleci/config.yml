@@ -11,7 +11,7 @@ jobs:
       image: ubuntu-2204:2022.10.2
     steps:
       - checkout
-      - run: |
+      - run:
           name: "Update Apt Index"
           command: sudo apt-get update && sudo apt-get upgrade
       - run: dpkg --print-architecture
