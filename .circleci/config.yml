@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     machine:
-      image: ubuntu-2204:2022.10.2
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
       - run:
@@ -28,6 +28,7 @@ jobs:
       - run: |
           cat /etc/passwd
           cat /etc/group
+          ls -lah ~/ | grep -i ssh
       - run:
           name: "OpenVPN systemd test"
           command: |
