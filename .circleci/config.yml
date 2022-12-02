@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run:
           name: "Update Apt Index"
-          command: sudo apt-get update && sudo apt-get upgrade
+          command: DEBIAN_FRONTEND=noninteractive sudo apt-get update && DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade
       - run: dpkg --print-architecture
       - run: sudo apt-get update && sudo apt-get install -y openvpn openvpn-systemd-resolved
       - run:
