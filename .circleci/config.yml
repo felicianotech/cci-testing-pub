@@ -11,6 +11,10 @@ jobs:
       image: ubuntu-2204:2022.10.2
     steps:
       - checkout
+      - run: |
+          cat /etc/passwd
+          cat /etc/group
+          ls -lah ~/ | grep -i ssh
       - run:
           name: "Update Apt Index"
           command: DEBIAN_FRONTEND=noninteractive sudo apt-get update && DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade
@@ -25,10 +29,6 @@ jobs:
           name: "Check Versions"
           command: |
             dpkg -l | grep " openssl "
-      - run: |
-          cat /etc/passwd
-          cat /etc/group
-          ls -lah ~/ | grep -i ssh
       - run:
           name: "OpenVPN systemd test"
           command: |
