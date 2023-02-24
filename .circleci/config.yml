@@ -7,7 +7,6 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: true
+    machine: true
     steps:
       - checkout
