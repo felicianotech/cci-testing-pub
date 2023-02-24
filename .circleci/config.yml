@@ -8,14 +8,6 @@ workflows:
 jobs:
   build:
     machine:
-      resource_class: gpu.nvidia.small
-      image: linux-cuda-11:2023.02.1
+      image: true
     steps:
       - checkout
-      - run: lspci -k | grep -EA3 'VGA|3D|Display' | grep "NVIDIA Corporation"
-      - run:
-          name: "Test if cuda is available.."
-          command: nvidia-smi
-      - run: docker version
-      - run: dpkg -l nvidia-container-toolkit
-      - run: nvcc --version
