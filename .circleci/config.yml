@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  win: circleci/windows@5.0
+
 workflows:
   main:
     jobs:
@@ -7,12 +10,9 @@ workflows:
 
 jobs:
   build:
-    machine:
-      image: windows-server-2022-gui:2023.03.1
-      #image: windows-server-2019-vs2019:2022.08.1
-      #image: windows-server-2019-nvidia:stable
-      resource_class: windows.medium
-      #resource_class: windows.gpu.nvidia.medium
+    executor:
+      name: win/server-2022
+      version: "2023.03.1"
     steps:
       - checkout
       - run: |
