@@ -16,11 +16,6 @@ jobs:
           cat /etc/group
           ls -lah ~/ | grep -i ssh
       - run:
-          name: "Update Apt Index"
-          command: DEBIAN_FRONTEND=noninteractive sudo apt-get update && DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade
-      - run: dpkg --print-architecture
-      - run: sudo apt-get update && sudo apt-get install -y openvpn openvpn-systemd-resolved
-      - run:
           name: "Check Envars"
           command: |
             echo $DEBIAN_FRONTEND
