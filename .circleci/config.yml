@@ -25,6 +25,7 @@ jobs:
           command: |
             echo $DEBIAN_FRONTEND
             echo $JAVA_HOME
+            ls -lah ~/.npm
       - run:
           name: "Check Versions"
           command: |
