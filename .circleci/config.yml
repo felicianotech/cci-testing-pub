@@ -12,12 +12,12 @@ jobs:
     steps:
       - checkout
       - run: dpkg --print-architecture
-      - run: sudo apt-get update && sudo apt-get install -y openvpn openvpn-systemd-resolved
       - run:
           name: "Check Envars"
           command: |
             sudo echo $DEBIAN_FRONTEND
             echo $JAVA_HOME
+            ls -lah ~/.nvm
       - run: |
           cat /etc/passwd
           cat /etc/group
